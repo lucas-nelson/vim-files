@@ -27,8 +27,8 @@ Plug 'ludovicchabant/vim-gutentags'
 " indent level text object
 Plug 'michaeljsmith/vim-indent-object'
 
-" Asynchronous lint engine (credo)
-Plug 'w0rp/ale'
+" adds :Ack command for searching
+Plug 'mileszs/ack.vim'
 
 " understand all the languages
 Plug 'sheerun/vim-polyglot'
@@ -53,6 +53,9 @@ Plug 'tpope/vim-repeat'
 
 " enhance fugutive to know about github
 Plug 'tpope/vim-rhubarb'
+
+" Asynchronous lint engine (credo)
+Plug 'w0rp/ale'
 
 " programming text objects
 Plug 'wellle/targets.vim'
@@ -151,6 +154,9 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag over ack
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 " make Shift-Down and Shift-Up not special
