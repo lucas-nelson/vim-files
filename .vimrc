@@ -17,8 +17,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andyl/vim-textobj-elixir'
 Plug 'kana/vim-textobj-user'
 
-" Full path fuzzy file, buffer, mru, tag, ... finder
-Plug 'ctrlpvim/ctrlp.vim'
+" Fuzzy file finder
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " ctags management
 Plug 'ludovicchabant/vim-gutentags'
@@ -131,16 +132,6 @@ let mapleader=","
 " make 'go to definition' work
 let g:alchemist_tag_disable = 1
 
-"
-" Configure Ctrlp
-"
-" show more results from search
-let g:ctrlp_match_window = 'min:5,max:20,results:100'
-" make new files open in the same buffer, no splits
-let g:ctrlp_open_new_file = 'v'
-" ignore files listed in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 " put ctags here
 let g:gutentags_cache_dir = '~/.tags_cache'
 
@@ -160,11 +151,13 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 " make Shift-Down and Shift-Up not special
 noremap <S-Down> <Down>
 noremap <S-Up> <Up>
+
+" fzf key bindings
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
