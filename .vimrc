@@ -17,6 +17,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andyl/vim-textobj-elixir'
 Plug 'kana/vim-textobj-user'
 
+" Tab auto completion
+Plug 'ervandew/supertab'
+
 " Fuzzy file finder
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -41,6 +44,12 @@ Plug 'tpope/vim-commentary'
 
 " automatically insert `end` after `do`
 Plug 'tpope/vim-endwise'
+
+" add some basic file system commands, like :Mkdir
+Plug 'tpope/vim-eunuch'
+
+" Navigate around, eg. alternate files
+Plug 'tpope/vim-projectionist'
 
 " surround text objects
 Plug 'tpope/vim-surround'
@@ -167,3 +176,39 @@ noremap <S-Up> <Up>
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+
+" projectionist config and key bindings
+" let g:projectionist_heuristics = {
+" \  "web/router.ex": {
+" \    "web/controllers/*_controller.ex": {
+" \      "type": "controller",
+" \      "alternate": "test/controllers/{}_controller_test.exs",
+" \    },
+" \    "web/models/*.ex": {
+" \      "type": "model",
+" \      "alternate": "test/models/{}_test.exs",
+" \    },
+" \    "web/views/*_view.ex": {
+" \      "type": "view",
+" \      "alternate": "test/views/{}_view_test.exs",
+" \    },
+" \    "web/templates/*.html.eex": {
+" \      "type": "template",
+" \      "alternate": "web/views/{dirname|basename}_view.ex"
+" \    },
+" \    "test/*_test.exs": {
+" \      "type": "test",
+" \      "alternate": "web/{}.ex",
+" \    }
+" \  },
+" \  "mix.exs": {
+" \    "lib/*.ex": { "alternate": "test/{}_test.exs" },
+" \    "test/*_test.exs": { "alternate": "lib/{}.ex" }
+" \  }
+" \}
+" noremap <leader>ec :Econtroller<Space>
+" noremap <leader>em :Emodel<Space>
+" noremap <leader>et :Etemplate<Space>
+" noremap <leader>eT :Etest<Space>
+" noremap <leader>ev :Eview<Space>
+" noremap <leader>a  :A<CR>
