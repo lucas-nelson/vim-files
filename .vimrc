@@ -122,6 +122,8 @@ set shiftwidth=2
 set smartcase
 " tabs are two spaces
 set softtabstop=2
+" open new vertical splits on the right-hand side
+set splitright
 " 100 characters per line
 set textwidth=100
 " put the persistent undo files here
@@ -178,37 +180,37 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 
 " projectionist config and key bindings
-" let g:projectionist_heuristics = {
-" \  "web/router.ex": {
-" \    "web/controllers/*_controller.ex": {
-" \      "type": "controller",
-" \      "alternate": "test/controllers/{}_controller_test.exs",
-" \    },
-" \    "web/models/*.ex": {
-" \      "type": "model",
-" \      "alternate": "test/models/{}_test.exs",
-" \    },
-" \    "web/views/*_view.ex": {
-" \      "type": "view",
-" \      "alternate": "test/views/{}_view_test.exs",
-" \    },
-" \    "web/templates/*.html.eex": {
-" \      "type": "template",
-" \      "alternate": "web/views/{dirname|basename}_view.ex"
-" \    },
-" \    "test/*_test.exs": {
-" \      "type": "test",
-" \      "alternate": "web/{}.ex",
-" \    }
-" \  },
-" \  "mix.exs": {
-" \    "lib/*.ex": { "alternate": "test/{}_test.exs" },
-" \    "test/*_test.exs": { "alternate": "lib/{}.ex" }
-" \  }
-" \}
-" noremap <leader>ec :Econtroller<Space>
-" noremap <leader>em :Emodel<Space>
-" noremap <leader>et :Etemplate<Space>
-" noremap <leader>eT :Etest<Space>
-" noremap <leader>ev :Eview<Space>
-" noremap <leader>a  :A<CR>
+let g:projectionist_heuristics = {
+\  "web/router.ex": {
+\    "web/controllers/*_controller.ex": {
+\      "type": "controller",
+\      "alternate": "test/controllers/{}_controller_test.exs",
+\    },
+\    "web/models/*.ex": {
+\      "type": "model",
+\      "alternate": "test/models/{}_test.exs",
+\    },
+\    "web/views/*_view.ex": {
+\      "type": "view",
+\      "alternate": "test/views/{}_view_test.exs",
+\    },
+\    "web/templates/*.html.eex": {
+\      "type": "template",
+\      "alternate": "web/views/{dirname|basename}_view.ex"
+\    },
+\    "test/*_test.exs": {
+\      "type": "test",
+\      "alternate": "web/{}.ex",
+\    }
+\  },
+\  "mix.exs": {
+\    "lib/*.ex": { "alternate": "test/{}_test.exs" },
+\    "test/*_test.exs": { "alternate": "lib/{}.ex" }
+\  }
+\}
+noremap <leader>ec :Econtroller<Space>
+noremap <leader>em :Emodel<Space>
+noremap <leader>et :Etemplate<Space>
+noremap <leader>eT :Etest<Space>
+noremap <leader>ev :Eview<Space>
+noremap <leader>a  :A<CR>
