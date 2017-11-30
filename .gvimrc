@@ -10,3 +10,7 @@ set guifont=Fira\ Mono:h13
 set guioptions-=r
 set guioptions-=L
 
+" get rid of the annoying ruby doco popus
+" https://stackoverflow.com/questions/871465/i-get-this-window-while-editing-ruby-files-in-vim-what-is-it
+autocmd FileType ruby,eruby set noballooneval
+

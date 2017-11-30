@@ -13,6 +13,9 @@ call plug#begin('~/.vim/plugged')
 " add a gutter to show git diff summary
 Plug 'airblade/vim-gitgutter'
 
+" keep vim's current working directory at the project level
+Plug 'airblade/vim-rooter'
+
 " elixir block text objects
 Plug 'andyl/vim-textobj-elixir'
 Plug 'kana/vim-textobj-user'
@@ -85,6 +88,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " Make `:` much easier to get to by using <SPACE>
 map <SPACE> :
 
+colorscheme delek
 
 " terminal has a dark background
 set bg=dark
@@ -153,6 +157,8 @@ let g:gutentags_cache_dir = '~/.tags_cache'
 "
 " no banner across the top
 let g:netrw_banner = 0
+" keep netrw's browsing directory and vim's current directory the same
+let g:netrw_keepdir = 0
 " tree view by default
 let g:netrw_liststyle = 3
 
@@ -220,15 +226,15 @@ noremap <leader>a  :A<CR>
 "
 " set working directory to git project root
 " or directory of current file if not git project
-function! SetProjectRoot()
-  " default to the current file's directory
-  lcd %:p:h
-  let git_dir = system("git rev-parse --show-toplevel")
-  " See if the command output starts with 'fatal' (if it does, not in a git repo)
-  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
-  " if git project, change local directory to git project root
-  if empty(is_not_git_dir)
-    lcd `=git_dir`
-  endif
-endfunction
-autocmd BufRead * call SetProjectRoot()
+" function! SetProjectRoot()
+"   " default to the current file's directory
+"   lcd %:p:h
+"   let git_dir = system("git rev-parse --show-toplevel")
+"   " See if the command output starts with 'fatal' (if it does, not in a git repo)
+"   let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+"   " if git project, change local directory to git project root
+"   if empty(is_not_git_dir)
+"     lcd `=git_dir`
+"   endif
+" endfunction
+" autocmd BufRead * call SetProjectRoot()
