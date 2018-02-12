@@ -51,20 +51,20 @@ Plug 'tpope/vim-endwise'
 " add some basic file system commands, like :Mkdir
 Plug 'tpope/vim-eunuch'
 
-" Navigate around, eg. alternate files
-Plug 'tpope/vim-projectionist'
-
-" surround text objects
-Plug 'tpope/vim-surround'
-
 " work with git
 Plug 'tpope/vim-fugitive'
+
+" Navigate around, eg. alternate files
+Plug 'tpope/vim-projectionist'
 
 " make . repeat stuff from a plugin
 Plug 'tpope/vim-repeat'
 
 " enhance fugutive to know about github
 Plug 'tpope/vim-rhubarb'
+
+" surround text objects
+Plug 'tpope/vim-surround'
 
 " Asynchronous lint engine (credo)
 Plug 'w0rp/ale'
