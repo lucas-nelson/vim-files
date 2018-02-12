@@ -66,6 +66,9 @@ Plug 'tpope/vim-rhubarb'
 " surround text objects
 Plug 'tpope/vim-surround'
 
+" combine with netrw to create a delicious salad dressing
+Plug 'tpope/vim-vinegar'
+
 " Asynchronous lint engine (credo)
 Plug 'w0rp/ale'
 
