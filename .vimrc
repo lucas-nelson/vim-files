@@ -36,6 +36,9 @@ Plug 'michaeljsmith/vim-indent-object'
 " adds :Ack command for searching
 Plug 'mileszs/ack.vim'
 
+" Better whitespace highlighting for Vim
+Plug 'ntpeters/vim-better-whitespace'
+
 " understand all the languages
 Plug 'sheerun/vim-polyglot'
 
@@ -85,14 +88,16 @@ call plug#end()
 autocmd Filetype gitcommit setlocal spell textwidth=72
 " auto save files on the way out
 autocmd BufLeave,FocusLost * silent! wall
-" strip trailing whitespace from lines
-autocmd BufWritePre * %s/\s\+$//e
+"" strip trailing whitespace from lines
+"autocmd BufWritePre !*.diff %s/\s\+$//e
 
 " Make `:` much easier to get to by using <SPACE>
 map <SPACE> :
 
 colorscheme delek
 
+" automatically reload changed files
+set autoread
 " terminal has a dark background
 set bg=dark
 " share the MacOS system clipboard
@@ -152,6 +157,17 @@ let mapleader=","
 
 " make 'go to definition' work
 let g:alchemist_tag_disable = 1
+
+" don't let ale run dialyxir, way too expensive
+let g:ale_linters = { 'elixir': ['credo'] }
+
+" turn on the better whitespace goodness
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitelines_at_eof=1
+
+" make git gutters diff against HEAD, not the index
+let g:gitgutter_diff_base = 'HEAD'
 
 " put ctags here
 let g:gutentags_cache_dir = '~/.tags_cache'
