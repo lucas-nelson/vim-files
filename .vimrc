@@ -78,6 +78,9 @@ Plug 'w0rp/ale'
 " programming text objects
 Plug 'wellle/targets.vim'
 
+" ansi escape sequence processing
+Plug 'vim-scripts/AnsiEsc.vim'
+
 call plug#end()
 
 "
@@ -98,8 +101,8 @@ colorscheme delek
 
 " automatically reload changed files
 set autoread
-" terminal has a dark background
-set bg=dark
+" terminal has a light background
+set bg=light
 " share the MacOS system clipboard
 set clipboard=unnamed
 " highlight lines longer than 100 chars
